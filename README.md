@@ -381,12 +381,23 @@ To dispose anything when the widget is disposed you can use call `onDispose` any
 
 ```dart
 class MyWidget extends WatchingWidget {
+  const MyWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
-   final textController = createOnce<TextEditingontroller>(()=>TexteditingController());
-   final anotherTextController = createOnce<TextEditingController>(()=>TextEditingController());
-   onDispose(()  {
-   // do stuff when the widget is disposed
+    final myTextController =
+        createOnce<TextEditingController>(() => TextEditingController());
+    final anotherTextController =
+        createOnce<TextEditingController>(() => TextEditingController());
+
+    final myStreamController = createOnce<StreamController<String>>(
+        () => StreamController<String>(),
+        dispose: (myStreamController) => myStreamController.close());
+    onDispose(() {
+      // do stuff when the widget is disposed
+    });
+
+    return const Placeholder();
   }
 }
 ```
