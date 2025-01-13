@@ -375,7 +375,7 @@ https://pub.dev/packages/get_it
 
 # __callOnce() and onDispose()__
 
-If you want to execute a function  only on the first built (even in in a StatelessWidget), you can use the `callOnce` function anywhere in your build function. It has an optional `dispose` handler which will be called when the widget is disposed.
+If you want to execute a function  only on the first built (even in in a StatelessWidget), you can use the `callOnce` function anywhere in your build function (similar to what `flutter_hooks` does. It has an optional `dispose` handler which will be called when the widget is disposed.
 
 To dispose anything when the widget is disposed you can use call `onDispose` anywhere in your build function
 
