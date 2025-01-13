@@ -377,16 +377,20 @@ https://pub.dev/packages/get_it
 
 If you want to execute a function  only on the first built (even in in a StatelessWidget), you can use the `callOnce` function anywhere in your build function. It has an optional `dispose` handler which will be called when the widget is disposed.
 
+To dispose anything when the widget is disposed you can use call `onDispose` anywhere in your build function
+
 ```dart
 class MyWidget extends WatchingWidget {
   @override
   Widget build(BuildContext context) {
    final textController = createOnce<TextEditingontroller>(()=>TexteditingController());
    final anotherTextController = createOnce<TextEditingController>(()=>TextEditingController);
+   onDispose(()  {
+   // do stuff when the widget is disposed
   }
 }
 ```
-To dispose anything when the widget is disposed you can use call `onDispose` anywhere in your build function
+
 
 
 # Pushing a new GetIt Scope
