@@ -577,15 +577,16 @@ void onDispose(void Function() dispose) {
   _activeWatchItState!.onDispose(dispose);
 }
 
-/// [createOnce] creates an  object with the factory function [factoryFunc] at
-/// the time of the first build and disposes it when the widget is disposed if
-/// the object implements the Disposable interface.
-/// on every rebuild the same object is returned
-/// [dispose] allows you to pass a custom dispose function to dispose of the object.
-/// if provided it will override the default dispose behavior.
+/// [createOnce] creates an object with the factory function [factoryFunc] at
+/// the time of the first build and disposes it when the widget is disposed (if
+/// the object implements the Disposable interface).
+/// On every rebuild the same object is returned.
+/// [dispose] allows you to pass a custom dispose function to dispose of the object
+/// if it doesn't implement the Disposable interface.
+/// If provided, it will override the default dispose behavior.
 ///
-/// If can be used to create AnimationControllers or other objects that should
-/// be live for the lifetime of the widget.
+/// This method can be used to create AnimationControllers or other objects that should
+/// be alive for the lifetime of the widget.
 T createOnce<T extends Object>(
   T Function() factoryFunc, {
   void Function(T)? dispose,
