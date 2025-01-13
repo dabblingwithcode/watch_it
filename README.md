@@ -384,7 +384,7 @@ class MyWidget extends WatchingWidget {
   @override
   Widget build(BuildContext context) {
    final textController = createOnce<TextEditingontroller>(()=>TexteditingController());
-   final anotherTextController = createOnce<TextEditingController>(()=>TextEditingController);
+   final anotherTextController = createOnce<TextEditingController>(()=>TextEditingController());
    onDispose(()  {
    // do stuff when the widget is disposed
   }
